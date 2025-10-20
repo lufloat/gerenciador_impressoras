@@ -1,0 +1,445 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Estilos Base (Desktop) - Mantidos originais */
+.barra {
+  position: fixed;
+  /* Fica sempre no topo ao scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  /* Altura da barra */
+  background: linear-gradient(#E2EBF0, #CFD);
+}
+
+body.dark .barra {
+  background: linear-gradient(#1e1e1e, #333);
+  color: #eee;
+   border-bottom: 1px solid #FF8C00;  
+}
+
+body.dark .barra {
+  background-color: #1e1e1e;
+  /* Fundo escuro */
+  border-bottom-color: #333;
+  /* Borda inferior no dark (em vez de border-top) */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  /* Sombra mais escura */
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  /* ajusta para ficar no topo da barra */
+  right: 270px;
+  /* distância da borda direita */
+  height: 130px;
+  width: auto;
+  display: block;
+  z-index: 10;
+}
+
+/* ======== HEADER CONTAINER ======== */
+.header {
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #000000;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  max-width: 1125px;
+  margin: 0 auto;
+  padding: 0 20px 20px 20px;
+  padding-top: 70px;
+  /* espaço para a barra fixa */
+}
+
+.header h1 {
+  margin-left: 0px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.header img {
+  padding-top: 20px;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  background: #111;
+  border-radius: 20px;
+  padding: 4px 10px;
+  cursor: pointer;
+  width: 60px;
+  height: 28px;
+  transition: background-color 0.3s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 100px;
+  right: 500px;
+}
+
+.toggle-btn {
+  width: 24px;
+  /* Seu tamanho aumentado */
+  height: 24px;
+  border-radius: 90%;
+  background: #ffffff;
+  /* Cinza para "off" */
+  margin: 0;
+  /* Sem margem extra */
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  /* Transições suaves */
+  flex-shrink: 0;
+  /* Evita encolhimento no flex */
+}
+
+.toggle-btn.active {
+  transform: translateX(32px);
+  background: #fff;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 15px;
+  padding: 12px 0;
+  align-items: center;
+}
+
+.nav-buttons button {
+  background-color: #FFA109;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  /* centraliza ícone + texto */
+  justify-content: center;
+  gap: 0px;
+  /* espaço entre ícone e texto */
+  width: 200px;
+  height: 60px;
+}
+
+.nav-buttons button h1 {
+  text-align: center;
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 24px;
+  /* deixei menor pra caber melhor */
+}
+
+
+.nav-buttons button:hover {
+  background-color: black;
+  transform: scale(1.05);
+}
+
+/* ======== TEXTO DA PÁGINA ======== */
+.page-title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+/* ======== DARK MODE ======== */
+body.dark .header .titulo-impressoras {
+  color: #fff;
+  /* Branco puro – legível em #1e1e1e (seu fundo dark) */
+}
+
+body.dark,
+.dark {
+  background-color: #222;
+  color: #eee;
+}
+
+body.dark .header,
+.dark .header {
+  background-color: #333;
+  border-color: #555;
+}
+
+body.dark .toggle {
+  background: #eee;
+}
+
+body.dark .toggle-btn {
+  background: #222;
+}
+
+body.dark .toggle-btn.active {
+  background: #fff;
+}
+
+body.dark .nav-buttons button {
+  background-color: #ffa500;
+  color: #222;
+}
+
+body.dark .nav-buttons button:hover {
+  background-color: #000000;
+}
+
+/* ========================================== */
+/* MEDIA QUERIES PARA RESPONSIVIDADE */
+/* ========================================== */
+/* Tablet: max-width 1024px (ex.: iPad landscape) */
+@media (max-width: 1024px) {
+  .barra {
+    height: 70px;
+    /* Reduz altura da barra */
+    padding: 0 10px;
+    /* Menos padding horizontal */
+  }
+
+  .header {
+    max-width: 100%;
+    /* Usa largura total */
+    padding: 0 15px 15px 15px;
+    /* Padding menor */
+    padding-top: 60px;
+    /* Ajusta para barra menor */
+  }
+
+  .logo {
+    right: 200px;
+    /* Reposiciona logo mais à esquerda */
+    height: 100px;
+    /* Reduz tamanho */
+  }
+
+  .toggle {
+    right: 400px;
+    /* Reposiciona toggle */
+    width: 55px;
+    height: 26px;
+  }
+
+  .toggle-btn {
+    width: 22px;
+    height: 22px;
+  }
+
+  .toggle-btn.active {
+    transform: translateX(28px);
+  }
+
+  .nav-buttons {
+    gap: 10px;
+    /* Menos espaço entre botões */
+  }
+
+  .nav-buttons button {
+    width: 180px;
+    height: 55px;
+    padding: 8px 16px;
+  }
+
+  .nav-buttons button h1 {
+    font-size: 20px;
+  }
+
+  .header h1 {
+    font-size: 26px;
+    /* Título menor */
+  }
+
+  .page-title {
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+  }
+
+  /* Dark mode em tablet: Sombras menores para performance */
+  body.dark .barra {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Celular: max-width 768px (ex.: iPhone landscape ou tablets portrait) */
+@media (max-width: 768px) {
+  .barra {
+    height: 60px;
+    /* Ainda menor */
+    padding: 0 5px;
+  }
+
+  .header {
+    padding: 0 10px 10px 10px;
+    padding-top: 50px;
+    /* Ajusta para barra */
+    flex-direction: column;
+    /* Garante stack vertical */
+  }
+
+  .logo {
+    position: relative;
+    /* Muda para relativa, centraliza */
+    top: auto;
+    right: auto;
+    margin: 10px auto;
+    /* Centraliza horizontalmente */
+    height: 80px;
+    /* Mais pequeno */
+    display: block;
+  }
+
+  .toggle {
+    position: relative;
+    /* Remove absoluto para flex */
+    top: auto;
+    right: auto;
+    margin: 10px auto;
+    /* Centraliza no header */
+    width: 50px;
+    height: 24px;
+    padding: 2px 4px;
+  }
+
+  .toggle-btn {
+    width: 20px;
+    height: 20px;
+  }
+
+  .toggle-btn.active {
+    transform: translateX(24px);
+  }
+
+  .nav-buttons {
+    flex-direction: column;
+    /* Empilha botões verticalmente */
+    gap: 10px;
+    width: 100%;
+    /* Largura total */
+    align-items: stretch;
+    /* Botões ocupam largura cheia */
+  }
+
+  .nav-buttons button {
+    width: 100%;
+    /* Botões full-width em mobile */
+    height: 50px;
+    padding: 10px;
+    border-radius: 6px;
+    /* Menos arredondado */
+  }
+
+  .nav-buttons button h1 {
+    font-size: 18px;
+    /* Ainda menor */
+  }
+
+  .nav-buttons button:hover {
+    transform: scale(1.02);
+    /* Escala menor em mobile (toque) */
+  }
+
+
+
+  .header h1 {
+    font-size: 24px;
+    text-align: center;
+    /* Centraliza título */
+    margin: 0 auto;
+  }
+
+  .header img {
+    padding-top: 10px;
+    /* Menos padding para imagens */
+    width: 100%;
+    /* Imagens responsivas */
+    height: auto;
+  }
+
+  .page-title {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  /* Dark mode em mobile: Reduz sombras */
+  body.dark .header {
+    border-color: #444;
+    /* Borda mais sutil */
+  }
+
+  body.dark .nav-buttons button {
+    border-radius: 6px;
+    /* Consistência */
+  }
+}
+
+/* Celular Pequeno: max-width 480px (ex.: iPhone portrait) */
+@media (max-width: 480px) {
+  .barra {
+    height: 50px;
+    /* Mínima altura */
+  }
+
+  .header {
+    padding: 0 5px 5px 5px;
+    padding-top: 40px;
+  }
+
+  .logo {
+    height: 60px;
+    /* Muito pequeno */
+    margin: 5px auto;
+  }
+
+  .toggle {
+    width: 45px;
+    height: 22px;
+    padding: 1px 3px;
+  }
+
+  .toggle-btn {
+    width: 18px;
+    height: 18px;
+  }
+
+  .toggle-btn.active {
+    transform: translateX(22px);
+  }
+
+  .nav-buttons button {
+    height: 45px;
+  }
+
+  .nav-buttons button h1 {
+    font-size: 16px;
+  }
+
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .page-title {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  /* Remove hover em telas touch (mobile) para simplicidade */
+  .nav-buttons button:hover {
+    transform: none;
+    /* Sem escala em touch */
+    background-color: #FFA109;
+    /* Mantém cor original */
+  }
+
+  body.dark .nav-buttons button:hover {
+    background-color: #000000;
+  }
+
+  /* Geral: Fundo body em mobile dark com menos contraste se necessário */
+  body.dark {
+    background-color: #1a1a1a;
+    /* Mais escuro para economizar bateria em OLED */
+  }
+}

@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.lista-pecas-container {
+  font-family: "Montserrat", sans-serif;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  max-width: 500px; /* Largura máxima, se necessário */
+  margin: 20px auto; /* Centralizar */
+  background-color: #f9f9f9; /* Cor de fundo */
+}
+
+
+body.dark .lista-pecas-container {
+    background: linear-gradient(#2A2A2A, #121212);
+    color: #FFFFFF; /* Fonte agora será branca */
+}
+
+.titulo-lista {
+  color: #000000;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px; /* Tamanho da fonte do título */
+}
+
+body.dark .titulo-lista {
+  color: white;
+}
+
+.input-adicionar {
+  display: flex;
+  gap: 10px; /* Espaço entre input e botão */
+  margin-bottom: 20px;
+  align-items: center; /* Alinhar verticalmente */
+}
+
+.input-peca {
+  flex-grow: 1; /* Ocupa o espaço disponível */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px; /* Reduzido para mobile */
+}
+
+.botao-adicionar,
+.botao-excluir {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
+.botao-adicionar {
+  background-color: #4CAF50; /* Verde */
+  color: white;
+}
+
+.botao-adicionar:hover {
+  background-color: #45a049;
+  transform: scale(1.10);
+}
+
+.mensagem-erro {
+  color:#F25165;
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 14px; /* Reduzido para mobile */
+}
+
+.lista-de-pecas {
+  list-style: none; /* Remove os marcadores da lista */
+  padding: 0;
+}
+
+.item-lista {
+  display: flex;
+  justify-content: space-between; /* Espaça o nome da peça e o botão */
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee; /* Linha separadora */
+}
+
+.item-lista:last-child {
+  border-bottom: none; /* Remove a linha do último item */
+}
+
+.nome-peca {
+  font-size: 16px;
+  color: #000000;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+body.dark .nome-peca {
+  color: white;
+}
+
+.botao-excluir {
+  background-color: #F25165; /* Vermelho */
+  color: white;
+}
+
+.botao-excluir:hover {
+  background-color: #da190b;
+}
+
+/* Pecas.css */
+
+.campo-busca {
+  margin-bottom: 25px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 25px;
+  padding: 10px 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.campo-busca:focus-within {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.input-busca {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #333;
+  background-color: transparent;
+  width: 100%;
+  padding: 0;
+}
+
+.input-busca::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+.input-busca {
+  box-sizing: border-box;
+}
+
+
+.custom-file-upload {
+  display: inline-block; /* 'block inline-block' não é uma propriedade válida, usei 'inline-block' que é mais comum para botões */
+  background-color: #cccccc; /* Cinza */
+  color: black; /* Mudei a cor do texto para preto para melhor contraste com o cinza */
+  padding: 8px 12px; /* Diminuí o padding para deixá-lo menor */
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adicionei uma sombra sutil */
+  transition: background-color 0.3s ease; /* Adicionei uma transição suave para o hover */
+  position: relative;
+  top: -15px;
+}
+
+.custom-file-upload:hover {
+  background-color: #e0e0e0; /* Cinza um pouco mais claro no hover */
+}
+
+/* ========================================= */
+/* ========== MEDIA QUERIES MOBILE ========== */
+/* ========================================= */
+
+@media (max-width: 767px) { /* Para telas menores que 768px (geralmente celulares) */
+
+  .lista-pecas-container {
+    margin: 15px auto; /* Menos margem em cima/embaixo */
+    padding: 15px; /* Menos padding interno */
+    max-width: 95%; /* Ocupa quase toda a largura da tela */
+  }
+
+  .titulo-lista {
+    font-size: 20px; /* Título um pouco menor */
+    margin-bottom: 15px;
+  }
+
+  .input-adicionar {
+    flex-direction: column; /* Coloca o input e o botão um em cima do outro */
+    gap: 8px; /* Reduz o espaço entre eles */
+    margin-bottom: 15px;
+  }
+
+  .input-peca {
+    font-size: 14px; /* Input um pouco menor */
+    width: 100%; /* Garante que ocupe toda a largura disponível */
+    box-sizing: border-box; /* Para incluir padding e borda na largura */
+  }
+
+  .botao-adicionar,
+  .botao-excluir {
+    width: 100%; /* Botões ocupam toda a largura */
+    padding: 12px 15px; /* Ajusta padding para serem mais fáceis de clicar */
+    font-size: 14px;
+  }
+
+  .mensagem-erro {
+    font-size: 13px; /* Mensagem de erro um pouco menor */
+  }
+
+  .item-lista {
+    padding: 10px 0; /* Menos padding vertical nos itens da lista */
+  }
+
+  .nome-peca {
+    font-size: 15px; /* Nome da peça um pouco menor */
+  }
+
+  .campo-busca {
+    padding: 8px 12px; /* Padding do campo de busca reduzido */
+    margin-bottom: 20px; /* Menos margem abaixo do campo de busca */
+  }
+
+  .input-busca {
+    font-size: 15px; /* Input de busca um pouco menor */
+  }
+
+  /* Se você tiver um ícone de lupa, pode precisar ajustar o margin-right dele */
+  /* .campo-busca::before {
+    margin-right: 8px;
+  } */
+}
+
+

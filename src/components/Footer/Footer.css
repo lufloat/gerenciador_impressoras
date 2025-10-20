@@ -1,0 +1,62 @@
+
+.footer-main {
+  position: fixed;  /* Fixa o footer na tela (sempre visível) */
+  bottom: 0;        /* Posiciona no rodapé da tela */
+  left: 0;          /* Alinha à esquerda */
+  width: 100%;      /* Largura total da tela */
+  padding: 20px;    /* Espaço interno (mantido) */
+  text-align: center;  /* Centraliza texto e imagens */
+  background: linear-gradient(#E2EBF0, #CFD);  /* Gradiente mantido (ajuste #CFD se necessário) */
+  border: none;     /* Garante sem bordas */
+  box-sizing: border-box;  /* Inclui padding na largura total */
+  z-index: 1;       /* Fica por cima de outros elementos (opcional, ajuste se sobrepor) */
+  /* Altura não é fixa para se adaptar ao conteúdo */
+}
+
+body.dark .footer-main {
+  background: linear-gradient(#1e1e1e, #333);  /* Gradiente escuro para tema noturno */
+  color: #eee;  /* Texto claro para legibilidade */
+}
+
+
+/* Texto do copyright */
+.text-footer {
+  margin: 0 0 10px 0;  /* Espaço abaixo do texto */
+  font-size: 14px;  /* Pequeno para rodapé */
+  color: #6c757d;  /* Cinza suave */
+  font-family: Arial, sans-serif;  /* Fonte clean */
+}
+/* Conteúdo da imagem */
+.footer-content {
+  display: flex;  /* Flex para centralizar se precisar alinhar mais itens */
+  justify-content: center;  /* Centraliza horizontalmente */
+  align-items: center;  /* Centraliza verticalmente */
+}
+/* Imagem do logo/ícone */
+.footer-logo {
+  width: 40px;  /* Tamanho pequeno para rodapé (ajuste) */
+  height: auto;  /* Mantém proporção sem distorcer */
+  object-fit: contain;  /* Preserva qualidade */
+}
+/* Dark mode: Ajustes se você tiver (body.dark) */
+body.dark .footer-main {
+  background-color: #1e1e1e;  /* Fundo escuro */
+  border-top-color: #333;
+}
+body.dark .text-footer {
+  color: #adb5bd;  /* Cinza claro no escuro */
+}
+/* Responsivo: Em mobile, reduza padding */
+
+.hora-atual {
+  font-size: 16px;      /* Um pouco maior que o texto */
+  font-weight: 600;     /* Semi-bold para destaque */
+  color: #4fc3f7;       /* Cor azul clara (material design like) */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);  /* Sombra no texto para legibilidade */
+  animation: pulse 2s infinite;  /* Animação sutil de "pulsar" a cada 2s (não muito chamativo) */
+}
+/* Ícone do relógio (opcional, mas fica legal) */
+.icone-relogio {
+  font-size: 18px;  /* Tamanho do emoji */
+  animation: rotate 10s linear infinite;  /* Rotação lenta para simular movimento de relógio */
+}

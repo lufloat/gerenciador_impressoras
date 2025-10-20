@@ -1,0 +1,518 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+  box-sizing: border-box;
+}
+.impressora-card {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  border: 2px solid #ff7a2a;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  max-width: 980px;
+  margin: 18px auto;
+  font-family: "Montserrat", sans-serif;
+  position: relative;
+  transition: all 0.3s ease;
+  /* Suavidade geral */
+}
+body.dark .impressora-card {
+  background: linear-gradient(to right, #2A2A2A, #121212);
+  border: 2px solid #f39c12;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  color: #ecf0f1;
+}
+
+
+.left-panel {
+  background: #222427;
+  color: #fff;
+  padding: 32px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  min-width: 320px;
+  height: 280px;
+  justify-content: center;
+  transition: all 0.3s ease;
+  overflow: visible; /* Permite que a imagem expanda sem ser cortada */
+  position: relative; /* Garante que z-index funcione */
+}
+body.dark .left-panel {
+  background: #1e1e1e;
+  /* Mais escuro em dark mode */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+.printer-illustration {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  max-width: 320px;
+  overflow: visible; /* Evita corte na expansão */
+  position: relative;
+  z-index: 10; /* Faz a ilustração "flutuar" por cima em hover */
+}
+
+.printer-illustration img {
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+  height: auto;
+  transition: transform 0.4s ease, top 0.4s ease; /* Transição mais suave, incluindo top */
+  border-radius: 8px;
+  position: relative;
+  top: 70px;
+  z-index: 11; /* A imagem fica por cima de tudo */
+}
+.printer-illustration:hover img {
+  transform: scale(1.2); /* Aumentado de 1.1 para 1.2 – fica mais visível e "maior" */
+  top: 60px; /* Ajusta ligeiramente para cima no hover, evitando que saia da tela */
+}
+.printer-illustration>*:first-child {
+  display: block;
+  font-size: 12px;
+  color: #ccc;
+  margin-bottom: 8px;
+  white-space: nowrap;
+}
+
+/* Botões lado a lado: Row em desktop, com wrap e espaçamento igual */
+.button-column {
+  display: flex;
+  flex-direction: row;
+  /* Mudança principal: lado a lado */
+  gap: 12px;
+  /* Espaço menor entre botões */
+  margin-top: 24px;
+  width: 100%;
+  max-width: 320px;
+  justify-content: space-around;
+  /* Distribui igualmente */
+  flex-wrap: wrap;
+  /* Quebra linha se necessário */
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 20px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  /* Transição suave para hover/focus */
+  justify-content: center;
+  flex: 1;
+  /* Cada botão ocupa espaço igual */
+  min-width: 100px;
+  /* Mínimo para não encolher demais */
+  min-height: 48px;
+  /* Touch-friendly */
+  position: relative;
+  overflow: hidden;
+  /* Para efeitos internos */
+}
+
+.pill::before {
+  /* Efeito shimmer sutil nos botões */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+.pill:hover::before {
+  left: 100%;
+}
+.pill-cancel {
+  background: #ffffff;
+  color: #d33;
+}
+.pill-continue {
+  background: #ffffff;
+  color: #0aa254;
+}
+
+.pill-pause {
+  background: #ffffff;
+  color: #8a7b7b;
+}
+.pill:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.pill:focus {
+  /* Acessibilidade: Borda no focus */
+  outline: 2px solid #ff7a2a;
+  outline-offset: 2px;
+}
+.pill .icon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+.pill:hover .icon {
+  transform: scale(1.1);
+  /* Ícone cresce no hover */
+}
+
+.right-panel {
+  flex: 1;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 300px;
+  transition: all 0.3s ease;
+}
+.title {
+  margin: 0 0 12px 0;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.1;
+  color: #2b2b2b;
+}
+body.dark .title {
+  color: white;
+}
+.title .muted {
+  font-size: 18px;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.title .Strong {
+  font-size: 42px;
+  font-weight: 800;
+  color: #FFA109;
+  line-height: 1.1;
+  position: relative;
+  top: -60px;
+  right: -200px;
+}
+body.dark .title .Strong {
+  color: #f39c12;
+  /* Laranja mais claro em dark */
+}
+/* Hora estilizada: Com ícone, fundo e animação */
+.time-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  /* Fundo sutil */
+  background: rgba(255, 255, 255, 0.1);
+  /* Fundo leve em light */
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  max-width: 250px;
+  /* Limita largura para elegância */
+}
+
+body.dark .time-row {
+  background: rgba(255, 255, 255, 0.05);
+  /* Mais escuro em dark */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+.time-row::before {
+  /* Ícone de relógio antes do texto */
+  content: '🕒';
+  /* Emoji relógio; troque por SVG se preferir */
+  font-size: 20px;
+  animation: tick 2s infinite;
+  /* Animação de "tick" */
+}
+.time-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: #2b2b2b;
+  line-height: 1.2;
+  margin: 0;
+  /* Remove margem extra */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  /* Sombra para destaque */
+  animation: pulse 2s infinite;
+  /* Pisca sutil como relógio */
+}
+body.dark .time-text {
+  color: #4fc3f7;
+  /* Azul ciano em dark para "legal" */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Animações para hora */
+@keyframes tick {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+}
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+/* Barra de progresso estilizada: Mais fina, com shimmer e texto overlay */
+.progress-wrap {
+  width: 100%;
+  margin-top: 8px;
+  position: relative;
+  /* Para posicionar texto sobre a barra */
+}
+
+.progress-track {
+  height: 20px;
+  /* Mais fina e elegante */
+  width: 300px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  /* Bordas mais suaves */
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+body.dark .progress-track {
+  background: #333;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50, #8BC34A, #CDDC39, #FFEB3B);
+  /* Gradiente mais vibrante */
+  width: 0%;
+  transition: width 800ms ease-in-out;
+  /* Mais suave */
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+  /* Brilho externo */
+  position: relative;
+  overflow: hidden;
+}
+.progress-fill::after {
+  /* Shimmer effect: Brilho correndo pela barra */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 2s infinite;
+}
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+.View_Print {
+  /* Texto de porcentagem sobre a barra, agora bonito e centralizado */
+  position: relative;
+  top: 120px;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  /* Centraliza perfeitamente */
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  /* Sombra para legibilidade */
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.3);
+  /* Fundo sutil atrás do texto */
+  padding: 4px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+  white-space: nowrap;
+}
+body.dark .View_Print {
+  color: #ffffff;
+  /* Preto em dark para contraste com barra clara */
+  background: rgba(255, 255, 255, 0.2);
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.3);
+}
+/* ========================================== */
+/* MEDIA QUERIES PARA RESPONSIVIDADE (Refinadas) */
+/* ========================================== */
+@media (max-width: 1024px) {
+  .impressora-card {
+    max-width: 95%;
+    gap: 20px;
+    padding: 16px;
+  }
+  .left-panel {
+    min-width: 280px;
+    height: 250px;
+    padding: 28px;
+  }
+  .printer-illustration {
+    max-width: 280px;
+  }
+  .printer-illustration img {
+    width: 85%;
+    top: 50px;
+  }
+  .button-column {
+    gap: 10px;
+    max-width: 280px;
+  }
+.pill {
+    padding: 12px 18px;
+    font-size: 15px;
+    min-width: 90px;
+  }
+  .right-panel {
+    min-width: 250px;
+    padding-left: 12px;
+  }
+  .title .Strong {
+    font-size: 36px;
+    top: -50px;
+    right: -150px;
+  }
+  .title .muted {
+    font-size: 16px;
+  }
+  .time-text {
+    font-size: 20px;
+  }
+  .time-row {
+    max-width: 220px;
+    padding: 10px 14px;
+  }
+  .progress-track {
+    width: 350px;
+    height: 7px;
+  }
+.View_Print {
+    font-size: 18px;
+    padding: 3px 10px;
+  }
+  body.dark .impressora-card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+@media (max-width: 768px) {
+  .impressora-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    gap: 16px;
+    margin: 12px auto;
+  }
+  .left-panel {
+    min-width: auto;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    order: -1;
+    overflow: visible; /* Mantém visível em mobile também */
+  }
+
+.printer-illustration {
+    max-width: 100%;
+    position: static;
+  }
+  .printer-illustration img {
+    width: 100%;
+    top: 0;
+    margin-bottom: 15px;
+  }
+  .printer-illustration:hover img {
+    transform: scale(1.1); /* Menos agressivo em mobile, para não "invadir" muito espaço */
+    top: 50px; /* Ajuste menor em mobile */
+  }
+  /* Botões em row com wrap em mobile médio */
+  .button-column {
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 16px;
+    max-width: 100%;
+  }
+
+ .pill {
+    padding: 12px 16px;
+    font-size: 15px;
+    width: auto;
+    min-width: 100px;
+    flex: 1;
+    max-width: 120px;
+    /* Limita para caber 2-3 lado a lado */
+  }
+  .pill:hover {
+    transform: scale(1.02);
+  }
+  .right-panel {
+    padding-left: 0;
+    width: 100%;
+    min-width: auto;
+    order: 1;
+  }
+  .title {
+    margin-bottom: 10px;
+  }
+  .title .muted {
+    font-size: 16px;
+  }
+  .title .Strong {
+    font-size: 32px;
+    position: static;
+    top: auto;
+    right: auto;
+    margin: 0 auto;
+    display: block;
+  }
+
+ .time-row {
+    flex-direction: row;
+    /* Mantém row, mas centraliza */
+    justify-content: center;
+    max-width: 100%;
+    margin: 0 auto 16px;
+    padding: 10px 14px;
+  }
+  .time-text {
+    font-size: 18px;
+  }
+  .progress-track {
+    width: 350px;
+    height: 7px;
+  }
+  .View_Print {
+    font-size: 18px;
+    padding: 3px 10px;
+  }
+  body.dark .impressora-card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
