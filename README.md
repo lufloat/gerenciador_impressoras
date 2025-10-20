@@ -6,8 +6,7 @@
 
 ## 🌍 Acesse o Projeto Online
 
-🔗 [Clique aqui para acessar o Gerenciador de Impressoras](https://gerenciador-impressoras.vercel.app)
-
+🔗 gerenciador-impressoras.vercel.app
 
 ---
 
