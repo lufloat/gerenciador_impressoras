@@ -2,6 +2,13 @@
 
 > Uma aplicação web moderna desenvolvida em **React**, criada para **monitorar e gerenciar impressoras 3D**, consultar **peças disponíveis em planilhas Excel** e **integrar com APIs** para exibir informações em tempo real.
 
+🔗 **Repositório do projeto:** [github.com/lufloat/gerenciador_impressoras](https://github.com/lufloat/gerenciador_impressoras)
+
+## 🌍 Acesse o Projeto Online
+
+🔗 [Clique aqui para acessar o Gerenciador de Impressoras](https://gerenciador-impressoras.vercel.app)
+
+
 ---
 
 ## 🚀 Tecnologias Utilizadas
@@ -11,7 +18,7 @@
 - 📡 **APIs REST**
 - 📊 **Leitura de planilhas Excel**
 - 🎨 **CSS / Styled Components / Tailwind** *(dependendo do setup do projeto)*
-- 🔧 **Vite ou Create React App** *(dependendo da sua inicialização)*
+- 🔧 **Vite ou Create React App** *(dependendo da inicialização)*
 
 ---
 
@@ -29,5 +36,8 @@
 
 ---
 
-## 🗂️ Estrutura do Projeto
+## ⚙️ Como Executar o Projeto
 
+### 1️⃣ Clone o repositório
+```bash
+git clone https://github.com/lufloat/gerenciador_impressoras.git
